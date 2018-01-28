@@ -172,6 +172,22 @@ namespace MyPortfolio.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("MyPortfolio.Models.Project", b =>
+                {
+                    b.Property<int>("ProjectId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("language");
+
+                    b.Property<string>("name");
+
+                    b.Property<string>("url");
+
+                    b.HasKey("ProjectId");
+
+                    b.ToTable("Projects");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")

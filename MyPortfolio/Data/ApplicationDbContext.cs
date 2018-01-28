@@ -15,7 +15,12 @@ namespace MyPortfolio.Models
         {
         }
 
-        
+        public virtual DbSet<Project> Projects { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseMySql(@"Server=localhost;Port=8889;Database=myportfolio;uid=root;pwd=root;");
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

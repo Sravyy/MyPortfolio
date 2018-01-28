@@ -1,4 +1,9 @@
-﻿.pageOne {
+﻿body {
+    font-family: Lobster;
+    background-color: white;
+}
+
+.pageOne {
     background-image: url('../images/3.jpg');
     background-size: 100%;
     background-position: center;

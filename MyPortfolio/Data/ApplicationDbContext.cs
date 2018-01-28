@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Models;
 
-namespace MyPortfolio.Data
+namespace MyPortfolio.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -14,6 +14,8 @@ namespace MyPortfolio.Data
             : base(options)
         {
         }
+
+        
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

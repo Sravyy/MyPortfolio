@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using MyPortfolio.Models;
 using MyPortfolio.Models.AccountViewModels;
 using MyPortfolio.Services;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MyPortfolio.Controllers
 {
@@ -23,6 +24,7 @@ namespace MyPortfolio.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly string _externalCookieScheme;
 
         public AccountController(
@@ -31,7 +33,7 @@ namespace MyPortfolio.Controllers
             IOptions<IdentityCookieOptions> identityCookieOptions,
             IEmailSender emailSender,
             ISmsSender smsSender,
-            ILoggerFactory loggerFactory)
+            ILoggerFactory loggerFactory, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -39,6 +41,7 @@ namespace MyPortfolio.Controllers
             _emailSender = emailSender;
             _smsSender = smsSender;
             _logger = loggerFactory.CreateLogger<AccountController>();
+            _roleManager = roleManager;
         }
 
         //
@@ -122,6 +125,9 @@ namespace MyPortfolio.Controllers
                     //var callbackUrl = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
                     //await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
                     //    $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
+
+                    await _userManager.AddToRoleAsync(user, "User");
+
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User created a new account with password.");
                     return RedirectToLocal(returnUrl);

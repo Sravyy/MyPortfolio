@@ -92,5 +92,7 @@ namespace MyPortfolio
 
             await RoleInitializer.Initalize(roleManager);
         }
+
+
     }
 }

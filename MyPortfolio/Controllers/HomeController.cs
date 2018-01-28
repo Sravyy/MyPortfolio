@@ -14,7 +14,7 @@ namespace MyPortfolio.Controllers
             return View();
         }
         
-        [Authorize(Roles ="User")]
+        [Authorize(Roles ="Admin")]
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

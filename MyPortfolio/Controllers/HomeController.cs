@@ -10,9 +10,11 @@ namespace MyPortfolio.Controllers
 {
     public class HomeController : Controller
     {
+       
         public IActionResult Index()
         {
-            return View();
+            var projects = Project.GetProjects();
+            return View(projects);
         }
         
         //[Authorize(Roles ="Users")]
@@ -31,12 +33,12 @@ namespace MyPortfolio.Controllers
             return View();
         }
 
-        public IActionResult Projects()
-        {
-            var projects = Project.GetProjects();
+        //public IActionResult Projects()
+        //{
+        //    var projects = Project.GetProjects();
 
-            return View(projects);
-        }
+        //    return View(projects);
+        //}
 
         public IActionResult Error()
         {

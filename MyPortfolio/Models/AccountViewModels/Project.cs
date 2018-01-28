@@ -18,7 +18,7 @@ namespace MyPortfolio.Models
         [Key]
         public int ProjectId { get; set; }
         public string name { get; set; }
-        public string url { get; set; }
+        public string starred_url { get; set; }
         public string language { get; set; }
 
         public Project()
@@ -28,16 +28,17 @@ namespace MyPortfolio.Models
 
         public static List<Project> GetProjects()
         {
-            var client = new RestClient("https://api.github.com/users/Sravyy/starred");
+            var client = new RestClient();
+            client.BaseUrl = new Uri("https://api.github.com/users/Sravyy/starred");
             client.AddDefaultHeader("User-Agent", "Sravyy");
             var request = new RestRequest();
-            
             var response = new RestResponse();
             Task.Run(async () =>
             {
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
-            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
+            JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(response.Content);
+
             var projectList = JsonConvert.DeserializeObject<List<Project>>(jsonResponse.ToString());
             return projectList;
         }
@@ -51,6 +52,6 @@ namespace MyPortfolio.Models
             return tcs.Task;
         }
 
-       
+
     }
 }

@@ -65,5 +65,19 @@
 </div>
 <div class="pageThree">
     <h1>My Projects</h1>
+   
+    <ol>
+        @foreach (var project in Model)
+        {
+            <li>
+                <ul>
+                    <li>Project: @Html.DisplayFor(modelItem => project.name)</li>
+                    <li>Link: @Html.DisplayFor(modelItem => project.url)</li>
+                    <li>Language: @Html.DisplayFor(modelItem => project.language)</li>
+                </ul>
+            </li>
+        }
+    </ol>
 
+   
 </div>

@@ -12,12 +12,12 @@
         type: 'GET',
         dataType: 'json',
         contentType: 'application/json',
-        url: '@Url.Action("DisplayObject")',
+        url: '@Url.Action("Posts")',
         success: function (result) {
         var resultString = "";
 	        result.forEach(function(result)
     	{
-            resultString += result.title + '<br>' + result.body + '<br>';
+            resultString += result.title + '<br>' + result.body + '<br><br>';
     	});
 
           $('#result').html(resultString);
@@ -34,7 +34,7 @@
 <div id="result"></div>
 
 
-<p>@Html.ActionLink("Create New Post", "Create")</p>
+<p>@Html.ActionLink("Create Post", "Create")</p>
 
 
 

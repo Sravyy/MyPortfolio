@@ -18,7 +18,7 @@ namespace MyPortfolio.Models
         [Key]
         public int ProjectId { get; set; }
         public string name { get; set; }
-        public string starred_url { get; set; }
+        public string html_url { get; set; }
         public string language { get; set; }
 
         public Project()
@@ -31,7 +31,11 @@ namespace MyPortfolio.Models
             var client = new RestClient();
             client.BaseUrl = new Uri("https://api.github.com/users/Sravyy/starred");
             client.AddDefaultHeader("User-Agent", "Sravyy");
+           
             var request = new RestRequest();
+            request.AddParameter("per_page", "3");
+            request.AddParameter("direction", "desc");
+
             var response = new RestResponse();
             Task.Run(async () =>
             {

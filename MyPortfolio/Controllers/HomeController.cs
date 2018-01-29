@@ -18,13 +18,17 @@ namespace MyPortfolio.Controllers
         }
         
         //[Authorize(Roles ="Users")]
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
+        //public IActionResult About()
+        //{
+        //    ViewData["Message"] = "Your application description page.";
 
-            return View();
-        }
+        //    return View();
+        //}
 
+        //public IActionResult AboutMe()
+        //{
+        //    return View();
+        //}
 
         public IActionResult Contact()
         {

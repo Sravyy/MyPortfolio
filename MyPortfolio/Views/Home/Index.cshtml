@@ -4,19 +4,34 @@
     ViewData["Title"] = "Home Page";
 }
 
-<style>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.hello-ajax').click(function () {
+      $.ajax({
+        type: 'GET',
+        url: '@Url.Action("Index")',
+        success: function (result) {
+            $('.pageTwo').html(result);
+        }
+      });
+    });
+  });
+</script>
 
-</style>
 <div class="pageOne">
     <div>
         <ul class="nav nav-pills">
             <li><a asp-area="" asp-controller="Home" asp-action="Index">My Portfolio</a></li>
 
             <li class="pull-right">
-                <a asp-area="" asp-controller="Home" asp-action="About">About Me</a></liclass="pull-right">
+            <li class="pull-right"><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+            <li class="pull-right"><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+            <li class="pull-right"><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
                 @*<li class="pull-right"><a asp-area="" asp-controller="Home" asp-action="Projects">Portfolio</a></li>*@
+            <li class="pull-right hello-ajax"><a asp-area="" asp-controller="Home" asp-action="Index">About Me</a></li>
             <li class="pull-right"><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
             <li class="pull-right"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+           
         </ul>
     </div>
     <div class="block text-center">
@@ -72,7 +87,7 @@
             <li>
                 <ul>
                     <li>Project: @Html.DisplayFor(modelItem => project.name)</li>
-                    <li>Link: @Html.DisplayFor(modelItem => project.url)</li>
+                    <li>Link: @Html.DisplayFor(modelItem => project.html_url)</li>
                     <li>Language: @Html.DisplayFor(modelItem => project.language)</li>
                 </ul>
             </li>

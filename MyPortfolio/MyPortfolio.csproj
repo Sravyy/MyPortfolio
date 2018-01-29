@@ -6,6 +6,10 @@
     <UserSecretsId>myportfolio</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="Models\AccountViewModels\BlogPost.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />

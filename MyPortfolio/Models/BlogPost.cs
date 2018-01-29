@@ -14,6 +14,7 @@ namespace MyPortfolio.Models
         public int PostId { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
+        public int CommentId { get; set; }
         public virtual ApplicationUser User { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
 

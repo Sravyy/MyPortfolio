@@ -1,0 +1,16 @@
+﻿@model MyPortfolio.Models.Comment
+
+@{
+    ViewData["Title"] = "Comment - Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Are you sure you want to delete this?</h2>
+<hr />
+@Html.DisplayNameFor(model => model.Author): @Html.DisplayFor(model => model.Author)
+@Html.DisplayNameFor(model => model.Comments): @Html.DisplayFor(model => model.Comments)
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" class="btn btn-success" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>

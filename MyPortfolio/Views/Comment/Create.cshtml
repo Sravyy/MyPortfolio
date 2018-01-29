@@ -1,0 +1,43 @@
+﻿@model MyPortfolio.Models.Comment
+
+@{
+    ViewData["Title"] = "Comment - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Add a comment</h2>
+<hr />
+
+<style>
+    .create {
+        color: white;
+    }
+
+    select {
+        color: black;
+        margin-left: 10px;
+    }
+
+    input {
+        margin-left: 10px;
+        color: black;
+    }
+</style>
+<div class="create">
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Author)
+        @Html.EditorFor(model => model.Author)
+
+        @Html.LabelFor(model => model.Comments)
+        @Html.EditorFor(model => model.Comments)
+
+
+        @Html.HiddenFor(model => model.BlogPostId);
+
+        <br>
+
+        <input type="submit" value="Create" class="btn btn-Success" />
+    }
+
+</div>
+@Html.ActionLink("Back to List", "Index")

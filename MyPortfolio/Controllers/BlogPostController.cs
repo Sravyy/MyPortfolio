@@ -7,6 +7,7 @@ using MyPortfolio.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -44,6 +45,28 @@ namespace MyPortfolio.Controllers
             blogpost.User = currentUser;
             _db.BlogPosts.Add(blogpost);
             _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Details(int id)
+        {
+            var thisPost = _db.BlogPosts
+                               .Include(x => x.Comments)
+                               .FirstOrDefault(x => x.PostId == id);
+            return View(thisPost);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var thisPost = _db.BlogPosts.FirstOrDefault(x => x.PostId == id);
+            return View(thisPost);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisPost = _db.BlogPosts.FirstOrDefault(x => x.PostId == id);
+            _db.Remove(thisPost);
             return RedirectToAction("Index");
         }
 

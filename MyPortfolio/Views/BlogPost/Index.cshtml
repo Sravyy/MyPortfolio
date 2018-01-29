@@ -31,10 +31,17 @@
 
 <h4 class="display-post">Click Post</h4>
 
-<div id="result"></div>
+<div id="result">
+
+    @*@Html.ActionLink("Add Comment", "Create", "Comments", new { id = Model.PostId }) |
+    @Html.ActionLink("Details", "Details", new { id = Model.PostId }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.PostId })*@
+</div>
 
 
 <p>@Html.ActionLink("Create Post", "Create")</p>
+
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
 
 
 

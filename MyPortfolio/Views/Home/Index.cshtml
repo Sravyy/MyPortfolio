@@ -28,7 +28,7 @@
             <li class="pull-right"><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
             <li class="pull-right"><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
             <li class="pull-right"><a asp-area="" asp-controller="BlogPost" asp-action="Index">My Blog</a></li>
-            <li class="pull-right hello-ajax"><a asp-area="" asp-controller="Home" asp-action="Index">About Me</a></li>
+            <li class="pull-right hello-ajax"><a asp-area="" asp-controller="Home" asp-action="About">About Me</a></li>
             <li class="pull-right"><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
             <li class="pull-right"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
            
@@ -80,19 +80,19 @@
 </div>
 <div class="pageThree">
     <h1>My Projects</h1>
-   
-    <ol>
+    <div class="row">
         @foreach (var project in Model)
         {
-            <li>
-                <ul>
-                    <li>Project: @Html.DisplayFor(modelItem => project.name)</li>
-                    <li>Link: @Html.DisplayFor(modelItem => project.html_url)</li>
-                    <li>Language: @Html.DisplayFor(modelItem => project.language)</li>
-                </ul>
-            </li>
+            <div class="col-md-4">
+                <i class="fa fa-star"></i>
+                <p>Project: @Html.DisplayFor(modelItem => project.name)</p>
+                <p>Link: @Html.DisplayFor(modelItem => project.html_url)</p>
+                <p>Language: @Html.DisplayFor(modelItem => project.language)</p>
+            </div>
         }
-    </ol>
-
-   
+    </div>
 </div>
+           
+
+          
+   

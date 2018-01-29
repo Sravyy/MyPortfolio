@@ -1,0 +1,23 @@
+﻿@model MyPortfolio.Models.Comment
+
+@{
+    ViewData["Title"] = "Comment - Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Edit</h2>
+<hr />
+<h4>Edit the comment: </h4>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Author)
+    @Html.EditorFor(model => model.Author)
+
+    @Html.LabelFor(model => model.Comments)
+    @Html.EditorFor(model => model.Comments)
+
+
+    @Html.HiddenFor(model => model.BlogPostId);
+
+    <input type="submit" value="Save" class="btn btn-default" class="btn btn-success" />
+}
+@Html.ActionLink("Back to List", "Index")

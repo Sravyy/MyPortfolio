@@ -1,0 +1,52 @@
+﻿﻿@model MyPortfolio.Models.BlogPost
+
+
+@{
+    ViewData["Title"] = "Post Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .create {
+        color: white;
+        font-size: 17px;
+    }
+
+    select {
+        color: black;
+        margin-left: 10px;
+    }
+
+    input {
+        margin-left: 10px;
+        color: black;
+    }
+</style>
+
+<div class="create">
+    <h2>Post Details</h2>
+    <hr />
+
+    <p>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</p>
+
+    <p>@Html.DisplayNameFor(model => model.Body) : @Html.DisplayFor(model => model.Body)</p>
+
+    <br />
+    <p>@Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) | @Html.ActionLink("Back to List", "Index")</p>
+    <br />
+
+    <h2>Blog Post comments</h2>
+    <hr />
+
+    @foreach (var PostComment in @Model.Comments)
+    {
+        <p>
+            Author:<b>@PostComment.Author</b> ,
+            Comment:<b>@PostComment.Comments</b>,
+
+            @Html.ActionLink("Edit", "Edit", "Comment", new { id = PostComment.CommentId }) |
+            @Html.ActionLink("Delete", "Delete", "Comment", new { id = PostComment.CommentId })
+        </p>
+
+    }
+</div>

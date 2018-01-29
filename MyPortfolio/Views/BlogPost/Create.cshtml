@@ -5,18 +5,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    .create {
+        color: white;
+    }
 
-<h2>Add a new post</h2>
-<hr />
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(model => model.Title)
-    @Html.EditorFor(model => model.Title)
-    <br>
-    @Html.LabelFor(model => model.Body)
-    <br>
-    @Html.TextAreaFor(model => model.Body, new { style = "width: 400px; height: 200px;" })
-    <br>
-    <input type="submit" value="Create" class="btn btn-alert" = />
-}
+    select {
+        color: black;
+        margin-left: 10px;
+    }
+
+    input {
+        margin-left: 10px;
+        color: black;
+    }
+</style>
+
+<div class="create">
+    <h2>Add a new post</h2>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Title)
+        @Html.EditorFor(model => model.Title)
+        <br>
+        @Html.LabelFor(model => model.Body)
+        <br>
+        @Html.TextAreaFor(model => model.Body, new { style = "width: 400px; height: 200px;" })
+        <br>
+        <input type="submit" value="Create" class="btn btn-alert" = />
+        <br />
+    }
+</div>
+<br />
+
 @Html.ActionLink("Back to List", "Index");

@@ -1,7 +1,51 @@
 ﻿@{
     ViewData["Title"] = "About";
 }
-<h2>@ViewData["Title"].</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+<div class="header">
+    <ul class="nav nav-pills">
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">My Portfolio</a></li>
+
+        <li class="pull-right">
+        <li class="pull-right"><a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a></li>
+        <li class="pull-right"><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+        <li class="pull-right"><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
+        <li class="pull-right"><a asp-area="" asp-controller="BlogPost" asp-action="Index">My Blog</a></li>
+        <li class="pull-right hello-ajax"><a asp-area="" asp-controller="Home" asp-action="Index">About Me</a></li>
+        <li class="pull-right"><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+        <li class="pull-right"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+
+    </ul>
+</div>
+
+<div class="pageTwo">
+    <div class="row">
+        <div class=" text-center">
+            <h1>My Expertise</h1>
+            <p>I've got chops in all phases of the design process.</p>
+            <div class="row abt">
+                <div class="col-md-4">
+                    <i class="fa fa-diamond"></i>
+                    <h2>Ideas</h2>
+                    <p>
+                        I collaborate with clients and peers to nurture and transform ideas into well thought out design specs. After all, that's where the majority of amazing user experiences start.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-magic"></i>
+                    <h2>design</h2>
+                    <p>
+                        I sketch and wireframe interfaces focusing on content structure, intuitive UI patterns and simple interactions. I'm a minimalist who truly believes that less is more.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-code"></i>
+                    <h2>Code</h2>
+                    <p>I design in the browser with HTML(5), CSS(3) and a touch of JavaScript. I love coding things from scratch, but I can work with front-end frameworks like Bootstrap too.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

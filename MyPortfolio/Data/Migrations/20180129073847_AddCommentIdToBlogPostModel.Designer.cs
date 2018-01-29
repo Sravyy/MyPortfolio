@@ -8,9 +8,10 @@ using MyPortfolio.Models;
 namespace MyPortfolio.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180129073847_AddCommentIdToBlogPostModel")]
+    partial class AddCommentIdToBlogPostModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -179,7 +180,7 @@ namespace MyPortfolio.Data.Migrations
 
                     b.Property<string>("Body");
 
-                    b.Property<int>("CommentId");
+                    b.Property<string>("CommentId");
 
                     b.Property<string>("Title");
 

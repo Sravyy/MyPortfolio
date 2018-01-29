@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MyPortfolio.Models.BlogPost>
+
+@{
+    ViewData["Title"] = "BlogPost - Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('.display-post').click(function () {
+      $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+        url: '@Url.Action("DisplayObject")',
+        success: function (result) {
+        var resultString = "";
+	        result.forEach(function(result)
+    	{
+            resultString += result.title + '<br>' + result.body + '<br>';
+    	});
+
+          $('#result').html(resultString);
+        }
+      });
+    });
+  });
+</script>
+
+<h2>Here is your list of posts, @User.Identity.Name</h2>
+
+<h4 class="display-post">Click Post</h4>
+
+<div id="result"></div>
+
+
+<p>@Html.ActionLink("Create New Post", "Create")</p>
+
+
+

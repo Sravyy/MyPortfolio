@@ -8,9 +8,10 @@ using MyPortfolio.Models;
 namespace MyPortfolio.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180129055551_AddBlogAndCommentModels")]
+    partial class AddBlogAndCommentModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");
@@ -122,46 +123,6 @@ namespace MyPortfolio.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MyPortfolio.Models.AccountViewModels.BlogPost", b =>
-                {
-                    b.Property<int>("PostId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Body");
-
-                    b.Property<string>("Title");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("PostId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("BlogPosts");
-                });
-
-            modelBuilder.Entity("MyPortfolio.Models.AccountViewModels.Comment", b =>
-                {
-                    b.Property<int>("CommentId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Author");
-
-                    b.Property<int>("BlogPostId");
-
-                    b.Property<string>("Comments");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("CommentId");
-
-                    b.HasIndex("BlogPostId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Comments");
-                });
-
             modelBuilder.Entity("MyPortfolio.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -263,25 +224,6 @@ namespace MyPortfolio.Data.Migrations
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("MyPortfolio.Models.AccountViewModels.BlogPost", b =>
-                {
-                    b.HasOne("MyPortfolio.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("MyPortfolio.Models.AccountViewModels.Comment", b =>
-                {
-                    b.HasOne("MyPortfolio.Models.AccountViewModels.BlogPost", "BlogPosts")
-                        .WithMany("Comments")
-                        .HasForeignKey("BlogPostId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("MyPortfolio.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
         }
     }

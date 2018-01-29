@@ -6,9 +6,7 @@
     <UserSecretsId>myportfolio</UserSecretsId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="Models\AccountViewModels\BlogPost.cs" />
-  </ItemGroup>
+ 
 
 
   <ItemGroup>
@@ -39,6 +37,10 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.1" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Comment\" />
   </ItemGroup>
 
 </Project>

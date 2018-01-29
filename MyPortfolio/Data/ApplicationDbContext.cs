@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Models;
+using MyPortfolio.Models.AccountViewModels;
 
 namespace MyPortfolio.Models
 {
@@ -16,6 +17,9 @@ namespace MyPortfolio.Models
         }
 
         public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<BlogPost> BlogPosts { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

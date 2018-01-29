@@ -57,20 +57,20 @@
                     <i class="fa fa-diamond"></i>
                     <h2>Ideas</h2>
                     <p>
-                        I collaborate with clients and peers to nurture and transform ideas into well thought out design specs. After all, that's where the majority of amazing user experiences start.
+                        Ability to collaborate with Developers and peers to nurture and transform ideas into well thought out design specs. After all, that's where the majority of amazing user experiences start.
                     </p>
                 </div>
                 <div class="col-md-4">
                     <i class="fa fa-magic"></i>
                     <h2>design</h2>
                     <p>
-                        I sketch and wireframe interfaces focusing on content structure, intuitive UI patterns and simple interactions. I'm a minimalist who truly believes that less is more.
+                        I wireframe interfaces focusing on content structure, intuitive UI patterns and simple interactions. I'm a minimalist who truly believes that less is more.
                     </p>
                 </div>
                 <div class="col-md-4">
                     <i class="fa fa-code"></i>
                     <h2>Code</h2>
-                    <p>I design in the browser with HTML(5), CSS(3) and a touch of JavaScript. I love coding things from scratch, but I can work with front-end frameworks like Bootstrap too.</p>
+                    <p>I design in the browser with HTML, CSS and a touch of JavaScript along with applications developed on .Net framework using C#. I love coding things from scratch and developed fully functional applications from start to finish</p>
                 </div>
             </div>
 
@@ -87,7 +87,8 @@
                 <div class="col-md-4">
                     <i class="fa fa-star"></i>
                     <p>Project: @Html.DisplayFor(modelItem => project.name)</p>
-                    <p>Link: @Html.DisplayFor(modelItem => project.html_url)</p>
+                    <p>Link:
+                    <a href="@Html.DisplayFor(modelItem => project.html_url)">@Html.DisplayFor(modelItem => project.html_url)</a></p>
                     <p>Language: @Html.DisplayFor(modelItem => project.language)</p>
                 </div>
             }

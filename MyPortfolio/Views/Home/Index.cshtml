@@ -40,9 +40,9 @@
     </div>
 
     <div class="btnlist text-center">
-        <a class="btn btn-default" href="#">Twitter</a>
-        <a class="btn btn-default" href="#">Github</a>
-        <a class="btn btn-default" href="#">Linkedin</a>
+        <a class="btn btn-default" href="https://twitter.com/Sravysvelaga">Twitter</a>
+        <a class="btn btn-default" href="https://github.com/Sravyy">Github</a>
+        <a class="btn btn-default" href="https://www.linkedin.com/in/sravanthivelaga">Linkedin</a>
 
     </div>
 </div>
@@ -79,17 +79,19 @@
     </div>
 </div>
 <div class="pageThree">
-    <h1>My Projects</h1>
-    <div class="row">
-        @foreach (var project in Model)
-        {
-            <div class="col-md-4">
-                <i class="fa fa-star"></i>
-                <p>Project: @Html.DisplayFor(modelItem => project.name)</p>
-                <p>Link: @Html.DisplayFor(modelItem => project.html_url)</p>
-                <p>Language: @Html.DisplayFor(modelItem => project.language)</p>
-            </div>
-        }
+    <div class=" text-center">
+        <h1>My Projects</h1>
+        <div class="row">
+            @foreach (var project in Model)
+            {
+                <div class="col-md-4">
+                    <i class="fa fa-star"></i>
+                    <p>Project: @Html.DisplayFor(modelItem => project.name)</p>
+                    <p>Link: @Html.DisplayFor(modelItem => project.html_url)</p>
+                    <p>Language: @Html.DisplayFor(modelItem => project.language)</p>
+                </div>
+            }
+        </div>
     </div>
 </div>
            

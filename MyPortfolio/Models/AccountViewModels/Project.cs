@@ -34,7 +34,7 @@ namespace MyPortfolio.Models
            
             var request = new RestRequest();
             request.AddParameter("per_page", "3");
-            request.AddParameter("direction", "desc");
+            request.AddParameter("direction", "asc");
 
             var response = new RestResponse();
             Task.Run(async () =>

@@ -6,6 +6,10 @@
     <UserSecretsId>myportfolio</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Services\RoleInitializer.cs" />
+  </ItemGroup>
+
  
 
 

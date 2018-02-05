@@ -90,7 +90,6 @@ namespace MyPortfolio
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            await RoleInitializer.Initalize(roleManager);
         }
 
 
